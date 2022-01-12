@@ -2,16 +2,20 @@ import './App.css';
 import React, { useState, useEffect} from 'react';
 
 function App() {
-    const [colors, setColors] = useState([]);
+    const [colors, setColors] = useState([] as ColorObj[]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [colorsCount, setColorsCount] = useState(0);
 
-    const initialHex = "#b866d2";
-
     const [newColorName, setNewColorName] = useState("");
-    const [newColorHex, setNewColorHex] = useState(initialHex);
+    const [newColorHex, setNewColorHex] = useState("#b866d2");
     const [addNewColorError, setAddNewColorError] = useState(false);
+
+    type ColorObj = {
+        id: number,
+        name: string,
+        hex: string
+    };
 
     useEffect(() => {
         fetch('https://colors-definitions-api.herokuapp.com/colors')
@@ -27,7 +31,7 @@ function App() {
             })
     }, [colorsCount])
 
-    const addColor = (e) => {
+    const addColor = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         if (!newColorName || !newColorHex) {
             setAddNewColorError(true);
@@ -46,7 +50,6 @@ function App() {
             .then(data => {
                 setAddNewColorError(false);
                 setNewColorName("");
-                setNewColorHex(initialHex);
                 setColorsCount(colorsCount + 1);
             })
             .catch(error => {
@@ -54,7 +57,7 @@ function App() {
             })
      };
 
-     const deleteColor = (id) => {
+     const deleteColor = (id: number) => {
         fetch(`https://colors-definitions-api.herokuapp.com/colors/${id}`, {
                 method: 'DELETE'
             })
@@ -76,7 +79,7 @@ function App() {
             <div className="add-color-container">
                 <form onSubmit={addColor}>
                     <div className="input-container">
-                        <label for="newColorName">Name:</label>
+                        <label htmlFor="newColorName">Name:</label>
                         <input
                             name="newColorName"
                             type="text"
@@ -85,7 +88,7 @@ function App() {
                         />
                     </div>
                     <div className="input-container">
-                        <label for="newColorHex">Hex:</label>
+                        <label htmlFor="newColorHex">Hex:</label>
                         <input
                             name="newColorHex"
                             type="color"
@@ -100,7 +103,7 @@ function App() {
                 </form>
             </div>
             <div className="colors-container">
-                {colors.map(color => {
+                {colors.map((color: ColorObj) => {
                     return (
                         <div className="color-container" key={color.id}>
                             <div className="color-box" style={{backgroundColor: color.hex}}></div>
