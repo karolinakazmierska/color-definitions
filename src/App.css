@@ -75,12 +75,14 @@ input[type="color"]::-webkit-color-swatch {
     letter-spacing: 1px;
 }
 .color-container {
-    padding: 10px;
+    padding: 10px 10px 26px 10px;
     background: #fff;
     margin-right: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
     text-align: center;
+    max-width: 120px;
+    position: relative;
 }
 .color-box {
     width: 100px;
@@ -91,8 +93,14 @@ input[type="color"]::-webkit-color-swatch {
     margin: 5px 0;
     font-size: 14px;
     color: #8c8b8b;
+    max-width: 100px;
+    overflow-wrap: break-word;
 }
 .delete {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
     font-size: 11px;
     color: #8a0000;
