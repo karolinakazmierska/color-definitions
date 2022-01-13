@@ -83,6 +83,7 @@ function App() {
                         <input
                             name="newColorName"
                             type="text"
+                            maxLength={20}
                             value={newColorName}
                             onChange={e => setNewColorName(e.target.value)}
                         />
@@ -96,7 +97,7 @@ function App() {
                             onChange={e => setNewColorHex(e.target.value)}
                         />
                     </div>
-                    <input type="submit" value="Submit" className="submit" />
+                    <input type="submit" value="Add new color" className="submit" />
                     {
                         addNewColorError && <span className="error">Fill in all fields</span>
                     }
