@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/color-definitions/static/css/main.c70d9cdf.css",
+    "main.css": "/color-definitions/static/css/main.9227a2cf.css",
     "main.js": "/color-definitions/static/js/main.00faedd0.js",
     "index.html": "/color-definitions/index.html",
-    "main.c70d9cdf.css.map": "/color-definitions/static/css/main.c70d9cdf.css.map",
+    "main.9227a2cf.css.map": "/color-definitions/static/css/main.9227a2cf.css.map",
     "main.00faedd0.js.map": "/color-definitions/static/js/main.00faedd0.js.map"
   },
   "entrypoints": [
-    "static/css/main.c70d9cdf.css",
+    "static/css/main.9227a2cf.css",
     "static/js/main.00faedd0.js"
   ]
 }
